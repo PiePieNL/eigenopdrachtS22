@@ -11,9 +11,16 @@ namespace eigenopdracht
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           DbBerichten db = new DbBerichten();
+           Nbericht nieuws= db.GetNieuwsBericht(Request.Cookies["titelnieuws"].Value);
+           Label1.Text = nieuws.Titel;
+           Label2.Text = nieuws.Inhoud;
+           Label3.Text = "postdatum: " + nieuws.Postdatum.ToString() + "laatst gewijzigd: " + nieuws.Laatstgewijzigd.ToString();
+           Response.Cookies["BerichtId"].Value = nieuws.Berichtid.ToString();
+            
         }
 
+       
         
 
        
