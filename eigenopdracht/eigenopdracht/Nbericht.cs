@@ -10,7 +10,7 @@ namespace eigenopdracht
         private string bron;
         public string Bron { get { return bron; } }
 
-        public Nbericht(string titel, string inhoud, DateTime postdatum,DateTime laatstgewijzigd,string bron ): base(titel,inhoud,postdatum,laatstgewijzigd)
+        public Nbericht(int berichtid,string titel, string inhoud, DateTime postdatum,DateTime laatstgewijzigd,string bron ): base(berichtid,titel,inhoud,postdatum,laatstgewijzigd)
         {
             this.bron = bron;
         }
