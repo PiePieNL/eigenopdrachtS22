@@ -24,5 +24,11 @@ namespace eigenopdracht
             this.reactietekst = reactietekst;
             this.username = username;
         }
+        public Reactie(string username, string reactietekst, int berichtid)
+        {
+            this.reactietekst = reactietekst;
+            this.username = username;
+            this.berichtid = berichtid;
+        }
     }
 }

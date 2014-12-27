@@ -6812,4 +6812,10 @@ td.visible-print {
   td.hidden-print {
     display: none !important;
   }
+  #UsernameLabel{
+    text-align:right;
+    font-size:small;
+    color:blue;
+}
+
 }

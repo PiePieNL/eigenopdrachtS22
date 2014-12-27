@@ -24,6 +24,7 @@ namespace eigenopdracht
                 if(checkpass()==true)
                 {
                     Session["Username"] = txtUsername.Text;
+                    Response.Redirect("Nieuws.aspx");
                 }
                 else
                 {

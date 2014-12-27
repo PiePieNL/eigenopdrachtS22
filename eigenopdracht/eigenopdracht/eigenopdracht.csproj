@@ -163,6 +163,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Nieuws.aspx" />
+    <Content Include="ZoekGame.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -294,6 +295,13 @@
     </Compile>
     <Compile Include="Nieuws.aspx.designer.cs">
       <DependentUpon>Nieuws.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ZoekGame.aspx.cs">
+      <DependentUpon>ZoekGame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ZoekGame.aspx.designer.cs">
+      <DependentUpon>ZoekGame.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
