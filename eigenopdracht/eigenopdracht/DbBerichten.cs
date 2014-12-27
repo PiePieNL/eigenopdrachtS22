@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
+using System.Data;
 
 
 
@@ -66,27 +67,31 @@ namespace eigenopdracht
             }
 
 
-        public List<Reactie> getReactiesBericht(int berichtid)
+        public DataSet getReactiesBericht(int berichtid)
         {
             OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             List<Reactie> reacties = new List<Reactie>();
+            DataSet ds = new DataSet();
             try
             {
                 conn.Open();
-                OracleCommand oraCommand = new OracleCommand("SELECT UserName,GeplaatstOP,Tekst FROM reactie WHERE BERICHTID = :berichtid", conn);
+                OracleCommand oraCommand = new OracleCommand("SELECT UserName,GeplaatstOP,Tekst FROM reactie WHERE BERICHTID = :berichtid ORDER BY GeplaatstOP DESC", conn);
                 oraCommand.Parameters.Add(new OracleParameter("berichtid", berichtid));
-                OracleDataReader oraReader = oraCommand.ExecuteReader();
-                while (oraReader.Read())
-                {
-                    string username;
-                    DateTime geplaatstOp;
-                    string tekst;
+                //OracleDataReader oraReader = oraCommand.ExecuteReader();
+                OracleDataAdapter adapter = new OracleDataAdapter(oraCommand);
+                adapter.Fill(ds);
+                
+                //while (oraReader.Read())
+                //{
+                //    string username;
+                //    DateTime geplaatstOp;
+                //    string tekst;
 
-                    username = Convert.ToString(oraReader["UserName"]);
-                    geplaatstOp = Convert.ToDateTime(oraReader["GeplaatstOp"]);
-                    tekst = Convert.ToString(oraReader["Tekst"]);
-                    reacties.Add(new Reactie(username, tekst, geplaatstOp));
-                }
+                //    username = Convert.ToString(oraReader["UserName"]);
+                //    geplaatstOp = Convert.ToDateTime(oraReader["GeplaatstOp"]);
+                //    tekst = Convert.ToString(oraReader["Tekst"]);
+                //    reacties.Add(new Reactie(username, tekst, geplaatstOp));
+                //}
             }
             catch (OracleException exc)
             {
@@ -96,7 +101,41 @@ namespace eigenopdracht
             {
                 conn.Close();
             }
-            return reacties;
+            return ds;
+
+        }
+
+
+        public void Plaatsreactie(Reactie reactie)
+        {
+            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            
+            try
+            {
+                conn.Open();
+                OracleCommand oraCommand = new OracleCommand("SELECT MAX(REACTIEID) from REACTIE ", conn);
+                
+                int maxid = int.Parse(oraCommand.ExecuteScalar().ToString());
+                
+                OracleCommand oraCommandins = new OracleCommand("INSERT INTO REACTIE(REACTIEID,TEKST,BERICHTID,USERNAME)VALUES(:Reactieid,:Inhoud,:Berichtid,:username) ", conn);
+                oraCommandins.Parameters.Add("ReactieID", maxid + 1);
+                oraCommandins.Parameters.Add("Inhoud",reactie.Reactietekst);
+                oraCommandins.Parameters.Add("Berichtid",reactie.BerichtID);
+                oraCommandins.Parameters.Add("username", reactie.Username);
+                oraCommandins.ExecuteNonQuery();
+                
+
+               
+            }
+            catch (OracleException exc)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+          
 
         }
 

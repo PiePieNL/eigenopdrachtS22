@@ -36,3 +36,9 @@ input[type="select"] {
         padding: 0;
     }
 }
+
+#UsernameLabel{
+    text-align:right;
+    font-size:small;
+    color:blue;
+}

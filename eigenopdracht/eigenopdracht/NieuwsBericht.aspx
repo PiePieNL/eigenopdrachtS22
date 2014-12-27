@@ -10,41 +10,34 @@
 
          <asp:Label ID="Label2"  runat="server" Text="Label" Font-Underline="False"></asp:Label>
          </p>
-         <p> </p>
+         <p>
+         <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label> </p>
      </div>
      
  </div>
+   <h2>Comments</h2>
  <div class="row">   
 <div class ="col-md-7">
-    <asp:DataList ID="DataList1" runat="server" DataSourceID="ObjectDataSource1" Width="310px" >
-        <ItemTemplate>
-            Username:
-            <asp:Label ID="UsernameLabel" runat="server" Text='<%# Eval("Username") %>' />
-            <br />
-            BerichtID:
-            <asp:Label ID="BerichtIDLabel" runat="server" Text='<%# Eval("BerichtID") %>' />
-            <br />
-            Reactietekst:
-            <asp:Label ID="ReactietekstLabel" runat="server" Text='<%# Eval("Reactietekst") %>' />
-            <br />
-            Postdatum:
-            <asp:Label ID="PostdatumLabel" runat="server" Text='<%# Eval("Postdatum") %>' />
-            <br />
-<br />
-        </ItemTemplate>
-    </asp:DataList>
-    
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="getReactiesBericht" TypeName="eigenopdracht.DbBerichten">
-        <SelectParameters>
-            <asp:CookieParameter CookieName="BerichtId" DefaultValue="0" Name="berichtid" Type="Int32" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
+    <asp:Repeater ID="Repeater1" runat="server">
+    <ItemTemplate>
+             <div class="form-group" style ="background-color:#D8D8D8 ">
+                 <div style="text-align: right;">
+        <asp:Label runat="server"   Text=<%#Eval("username") %>></asp:Label>
+                     <br></br>
+                     </div>
+        <asp:Label runat="server" Text=<%#Eval("Tekst") %>></asp:Label>
+                 <br></br>
+        <p>geplaatst op:<asp:Label runat="server" Text=<%#Eval("Geplaatstop") %>></asp:Label>
+            <br></br></p>
+                 </div>
+
+    </ItemTemplate>
+    </asp:Repeater>
     
 </div>
-
     <div class ="col-md-6">
         <asp:TextBox ID="TextBox1" runat="server" Height="91px" Width="311px" TextMode="MultiLine"></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" Text="Button" Width="77px" />
+        <asp:Button ID="btnAddComment" runat="server" Text="Plaats reactie" Width="97px" OnClick="btnAddComment_Click" />
     </div>
      </div>
 
