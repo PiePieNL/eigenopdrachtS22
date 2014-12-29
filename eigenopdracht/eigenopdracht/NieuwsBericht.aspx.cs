@@ -37,7 +37,7 @@ namespace eigenopdracht
             if (Session["Username"] != null)
             {
                 string username = (string)(Session["Username"]);
-                db.Plaatsreactie(new Reactie("Pieter12", TextBox1.Text, nieuws.Berichtid));
+                db.Plaatsreactie(new Reactie("Pieter12", txtComment.Text, nieuws.Berichtid));
             }
         }
 

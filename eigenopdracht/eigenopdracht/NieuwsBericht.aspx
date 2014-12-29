@@ -36,8 +36,9 @@
     
 </div>
     <div class ="col-md-6">
-        <asp:TextBox ID="TextBox1" runat="server" Height="91px" Width="311px" TextMode="MultiLine"></asp:TextBox>
+        <asp:TextBox ID="txtComment" runat="server" Height="91px" Width="311px" TextMode="MultiLine"></asp:TextBox>
         <asp:Button ID="btnAddComment" runat="server" Text="Plaats reactie" Width="97px" OnClick="btnAddComment_Click" />
+        <asp:RequiredFieldValidator ID="VDmessage" runat="server" ControlToValidate="TBComment" ErrorMessage="a message is needed"></asp:RequiredFieldValidator>
     </div>
      </div>
 

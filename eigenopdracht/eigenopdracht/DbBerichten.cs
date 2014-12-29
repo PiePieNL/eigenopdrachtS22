@@ -77,21 +77,11 @@ namespace eigenopdracht
                 conn.Open();
                 OracleCommand oraCommand = new OracleCommand("SELECT UserName,GeplaatstOP,Tekst FROM reactie WHERE BERICHTID = :berichtid ORDER BY GeplaatstOP DESC", conn);
                 oraCommand.Parameters.Add(new OracleParameter("berichtid", berichtid));
-                //OracleDataReader oraReader = oraCommand.ExecuteReader();
+               
                 OracleDataAdapter adapter = new OracleDataAdapter(oraCommand);
                 adapter.Fill(ds);
                 
-                //while (oraReader.Read())
-                //{
-                //    string username;
-                //    DateTime geplaatstOp;
-                //    string tekst;
-
-                //    username = Convert.ToString(oraReader["UserName"]);
-                //    geplaatstOp = Convert.ToDateTime(oraReader["GeplaatstOp"]);
-                //    tekst = Convert.ToString(oraReader["Tekst"]);
-                //    reacties.Add(new Reactie(username, tekst, geplaatstOp));
-                //}
+                
             }
             catch (OracleException exc)
             {
