@@ -13,12 +13,21 @@ namespace eigenopdracht
         DbGame dbGame = new DbGame();
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataSet ds = dbGame.GetGameInfo("Halo");
+            string gametitel = Request.Cookies["gametitel"].Value;
+            DataSet ds = dbGame.GetGameInfo(gametitel);
             Repeater1.DataSource = ds;
             Repeater1.DataBind();
-           
+            Repeater2.DataSource = dbGame.getGameNieuws("");
+            Repeater2.DataBind();
+            LaadScreenShots(gametitel);
             
             
+        }
+
+        protected void LaadScreenShots(string gametitel)
+        {
+            mylist.DataSource = dbGame.Getscreenshots(gametitel);
+            mylist.DataBind();
         }
 
        

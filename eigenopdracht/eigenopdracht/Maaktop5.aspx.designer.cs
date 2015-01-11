@@ -58,6 +58,15 @@ namespace eigenopdracht {
         protected global::System.Web.UI.WebControls.Button btnverwijder;
         
         /// <summary>
+        /// ddlMaand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMaand;
+        
+        /// <summary>
         /// btmaaktop5 control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace eigenopdracht {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btmaaktop5;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// ListBox1 control.

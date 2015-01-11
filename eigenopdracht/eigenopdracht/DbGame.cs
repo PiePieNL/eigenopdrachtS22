@@ -62,5 +62,34 @@ namespace eigenopdracht
             return nieuwsberichTitel;
         }
 
+        public DataSet Getscreenshots(string gametitel)
+        {
+            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            DataSet ds = new DataSet();
+            try
+            {
+                conn.Open();
+                string sql = "Select afbeeldingurl from screenshot WHERE GAMEID in (SELECT GAMEID FROM GAME WHERE TITEL =: gametitel) ";
+                OracleCommand oraCommand = new OracleCommand(sql, conn);
+                oraCommand.Parameters.Add(new OracleParameter("gametitel", gametitel));
+               
+
+                OracleDataAdapter adapter = new OracleDataAdapter(oraCommand);
+                adapter.Fill(ds);
+
+
+            }
+            catch (OracleException exc)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return ds;
+
+        }
+
     }
 }

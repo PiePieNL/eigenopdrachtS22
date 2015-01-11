@@ -27,11 +27,30 @@
                     </th>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td>
+                        <asp:DropDownList ID="ddlMaand" runat="server">
+                            <asp:ListItem Value="01">Januari</asp:ListItem>
+                            <asp:ListItem Value="02">Februari</asp:ListItem>
+                            <asp:ListItem Value="03">Maart</asp:ListItem>
+                            <asp:ListItem Value="04">April</asp:ListItem>
+                            <asp:ListItem Value="05">Mei</asp:ListItem>
+                            <asp:ListItem Value="06">Juni</asp:ListItem>
+                            <asp:ListItem Value="07">Juli</asp:ListItem>
+                            <asp:ListItem Value="08">Augustus</asp:ListItem>
+                            <asp:ListItem Value="09">September</asp:ListItem>
+                            <asp:ListItem Value="10">Oktober</asp:ListItem>
+                            <asp:ListItem Value="11">November</asp:ListItem>
+                            <asp:ListItem Value="12">December</asp:ListItem>
+                        </asp:DropDownList></td>
                     <td>
                         <asp:Button ID="btmaaktop5" runat="server" Text="maak top 5" OnClick="btmaaktop5_Click" /></td>
                     <td></td>
                 </tr>
+                <tr>
+                    <th colspan="3">
+                        <asp:Label ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label> </th>
+                </tr>
+
             </table>
 
 

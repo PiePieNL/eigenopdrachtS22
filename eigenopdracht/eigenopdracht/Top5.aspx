@@ -32,7 +32,7 @@
                             </th>
                             <th rowspan="2" style="text-align: center"> -  </th>
                             <th rowspan="2">
-                                <asp:Image ID="Image1" class="img-responsive" runat="server" ImageUrl='<%#Eval("AFBURL") %>' Height="75px" Width="48px" />
+                                <asp:Image ID="Image1" class= "img-responsive" runat="server" ImageUrl='<%#Eval("AFBURL") %>' Height="75px" Width="48px" />
                             </th>
                             <th rowspan="2" style="text-align: center">   </th>
                             <th colspan="2">
