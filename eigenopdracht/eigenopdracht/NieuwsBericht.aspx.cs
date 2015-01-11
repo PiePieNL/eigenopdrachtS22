@@ -38,6 +38,7 @@ namespace eigenopdracht
             {
                 string username = (string)(Session["Username"]);
                 db.Plaatsreactie(new Reactie("Pieter12", txtComment.Text, nieuws.Berichtid));
+                laadcomments();
             }
         }
 

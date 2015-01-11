@@ -25,6 +25,7 @@ namespace eigenopdracht
                 {
                     Session["Username"] = txtUsername.Text;
                     Response.Redirect("Nieuws.aspx");
+                   
                 }
                 else
                 {

@@ -153,9 +153,14 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Game.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="gameafb\cod.jpg" />
+    <Content Include="gameafb\destiny.png" />
+    <Content Include="gameafb\halo.jpg" />
+    <Content Include="gameafb\pokemon.jpg" />
+    <Content Include="gameafb\skyrim.png" />
+    <Content Include="GameInfo.aspx" />
     <Content Include="login.aspx" />
     <Content Include="NieuwsBericht.aspx" />
     <Content Include="packages.config" />
@@ -163,6 +168,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Nieuws.aspx" />
+    <Content Include="Top5.aspx" />
     <Content Include="ZoekGame.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -232,19 +238,21 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="DbBerichten.cs" />
-    <Compile Include="Game.aspx.cs">
-      <DependentUpon>Game.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Game.aspx.designer.cs">
-      <DependentUpon>Game.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="DbGame.cs" />
+    <Compile Include="DbTop5.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GameInfo.aspx.cs">
+      <DependentUpon>GameInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GameInfo.aspx.designer.cs">
+      <DependentUpon>GameInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -282,6 +290,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Top5.aspx.cs">
+      <DependentUpon>Top5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Top5.aspx.designer.cs">
+      <DependentUpon>Top5.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

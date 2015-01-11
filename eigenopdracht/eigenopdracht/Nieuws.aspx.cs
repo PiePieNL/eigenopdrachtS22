@@ -14,19 +14,13 @@ namespace eigenopdracht
 
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+       
+        protected void ListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string titelNieuws = GridView1.SelectedRow.Cells[1].Text;
-            Response.Cookies["titelnieuws"].Value = titelNieuws;
+            string titel = ListView1.SelectedDataKey.Value.ToString();
+            Response.Cookies["titelnieuws"].Value = titel;
             Response.Cookies["titelnieuws"].Expires = DateTime.Now.AddDays(1);
             Response.Redirect("NieuwsBericht.aspx");
-        }
-
-        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            //e.Row.Cells[0].Attributes.Add("onClick", Label1.Text = GridView1.SelectedRow.Cells[1].Text);
-            
-           
         }
 
 

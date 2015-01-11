@@ -59,7 +59,7 @@
                             <ul class="nav navbar-nav navbar-right">
                                 
                                 <li><a runat="server" href="~/Login">Log in</a></li>
-                                <li> <asp:Button ID="btlogout" runat="server" Text="Log out" Font-Names="Century" ForeColor="Black" Height="59px" /></li>
+                                <li> <asp:LinkButton ID="lkLogOut" runat="server">Log out</asp:LinkButton></li>
                             </ul>
                         </AnonymousTemplate>
                         
