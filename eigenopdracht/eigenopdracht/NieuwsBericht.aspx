@@ -3,7 +3,7 @@
     
     <div class="row">
         <h1>
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></h1>
+            <asp:Label ID="Label1" runat="server" Text="Label" ForeColor="#960000"></asp:Label></h1>
         <div class="col-md-8">
             <p class="text-right">
                 <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label></p>
@@ -18,7 +18,7 @@
         </div>
 
     </div>
-   <h2>Comments</h2>
+   <h2 style="color: #960000">Comments</h2>
     <div class="row">
         <div class="col-md-7">
             <asp:Repeater ID="Repeater1" runat="server">

@@ -31,11 +31,21 @@ namespace eigenopdracht
 
         protected void btnZoekGame_Click(object sender, EventArgs e)
         {
-            if( SearchGame()== true)
+            if (txtZoekGame.Text == "")
+            {
+                lbwarning.Text = "voer het veld in!";
+                lbwarning.Visible = true;
+            }
+            else if( SearchGame()== true)
             {
                 Response.Cookies["gametitel"].Value = txtZoekGame.Text;
                 Response.Cookies["gametitel"].Expires = DateTime.Now.AddDays(1);
                 Response.Redirect("GameInfo.aspx");
+            }
+            else
+            {
+                lbwarning.Text = "game niet gevonden";
+                lbwarning.Visible = true;
             }
         }
 

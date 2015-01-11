@@ -2,7 +2,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron" dir="ltr">
         
-         <h1 " style="padding: 10px">Nieuws </h1>
+         <h1 " style="margin: 10px 10px 20px 10px; color: #960000;">Nieuws </h1>
          
              
         <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSourcenieuws3dagen" DataKeyNames="TITEL" OnSelectedIndexChanged="ListView1_SelectedIndexChanged">

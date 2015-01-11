@@ -48,13 +48,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/Nieuws">Gamer.nl</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/Nieuws">Nieuws</a></li>
+                        <li><a runat="server" href="~/Zoekgame">Games</a></li>
+                        <li><a runat="server" href="~/Top5">Top5</a></li>
+                        <li><a runat="server" href="~/Maaktop5">Maak Top 5</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>

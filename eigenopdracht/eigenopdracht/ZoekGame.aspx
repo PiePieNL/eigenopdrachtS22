@@ -6,6 +6,8 @@
         <asp:TextBox ID="txtZoekGame" runat="server"></asp:TextBox>
         <asp:Button ID="btnZoekGame" runat="server" Text="Button" OnClick="btnZoekGame_Click" />
         
+        <asp:Label ID="lbwarning" runat="server" ForeColor="Red" Text="Label" Visible="False"></asp:Label>
+        
     </div>
     <div class = "col-md-9">
         
@@ -16,7 +18,7 @@
             
             <AlternatingItemTemplate>
                 
-                <span style="background-color: #FFF8DC;">TITEL:
+                <span style="background-color: #960000; color: #FFFFFF;">TITEL:
                 <asp:LinkButton ID="linktitel" runat="server"  Text= '<%# Eval("TITEL") %>' CommandName="Select"></asp:LinkButton>
                 <br />
                 GENRE:

@@ -233,7 +233,6 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
@@ -273,13 +272,6 @@
     <Compile Include="DbBerichten.cs" />
     <Compile Include="DbGame.cs" />
     <Compile Include="DbTop5.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="GameInfo.aspx.cs">
       <DependentUpon>GameInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
