@@ -12,12 +12,12 @@
         
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT &quot;TITEL&quot;, &quot;GENRE&quot;, &quot;PLATFORM&quot;, &quot;RELEASEDATUM&quot; FROM &quot;GAME&quot;"></asp:SqlDataSource>
 
-        <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="ListView1_SelectedIndexChanged1">
+        <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="ListView1_SelectedIndexChanged1" DataKeyNames ="TITEL" >
             
             <AlternatingItemTemplate>
                 
                 <span style="background-color: #FFF8DC;">TITEL:
-                <asp:LinkButton ID="linktitel" runat="server" OnClick="LinkButton2_Click " Text= '<%# Eval("TITEL") %>'></asp:LinkButton>
+                <asp:LinkButton ID="linktitel" runat="server"  Text= '<%# Eval("TITEL") %>' CommandName="Select"></asp:LinkButton>
                 <br />
                 GENRE:
                 <asp:Label ID="GENRELabel" runat="server" Text='<%# Eval("GENRE") %>' />
@@ -77,7 +77,7 @@
                     
                 
                 TITEL:
-                <asp:LinkButton ID="linktitel1" runat="server" OnClick="LinkButton2_Click " Text= '<%# Eval("TITEL") %>'></asp:LinkButton>
+                <asp:LinkButton ID="linktitel1" runat="server"  Text= '<%# Eval("TITEL") %>' CommandName="Select"></asp:LinkButton>
                 <br />
                 GENRE:
                 <asp:Label ID="GENRELabel" runat="server" Text='<%# Eval("GENRE") %>' />

@@ -10,24 +10,33 @@
 namespace eigenopdracht {
     
     
-    public partial class WebForm1 {
+    public partial class Top5 {
         
         /// <summary>
-        /// ListView1 control.
+        /// ddlJaar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlJaar;
         
         /// <summary>
-        /// SqlDataSourcenieuws3dagen control.
+        /// ddlmaand control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourcenieuws3dagen;
+        protected global::System.Web.UI.WebControls.DropDownList ddlmaand;
+        
+        /// <summary>
+        /// rpGames control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpGames;
     }
 }

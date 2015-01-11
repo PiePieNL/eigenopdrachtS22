@@ -5,7 +5,7 @@ using System.Web;
 
 namespace eigenopdracht
 {
-   abstract public class Bericht
+    public class Bericht
     {
        private int berichtid;
        private string titel;
@@ -28,6 +28,11 @@ namespace eigenopdracht
            this.inhoud = inhoud;
            this.postdatum = postdatum;
            this.laatstgewijzigd = laatstgewijzigd;
+       }
+
+       public Bericht(string titel)
+       {
+           this.titel = titel;
        }
 
     }

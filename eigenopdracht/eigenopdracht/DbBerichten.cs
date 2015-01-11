@@ -70,7 +70,6 @@ namespace eigenopdracht
         public DataSet getReactiesBericht(int berichtid)
         {
             OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-            List<Reactie> reacties = new List<Reactie>();
             DataSet ds = new DataSet();
             try
             {

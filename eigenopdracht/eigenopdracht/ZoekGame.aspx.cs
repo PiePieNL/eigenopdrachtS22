@@ -20,19 +20,22 @@ namespace eigenopdracht
 
         protected void ListView1_SelectedIndexChanged1(object sender, EventArgs e)
         {
-
-        }
-
-        protected void LinkButton2_Click(object sender, EventArgs e)
-        {
             
+            string titel = ListView1.SelectedDataKey.Value.ToString();
+            Response.Cookies["gametitel"].Value = titel;
+            Response.Cookies["gametitel"].Expires = DateTime.Now.AddDays(1);
+            Response.Redirect("GameInfo.aspx");
         }
+
+        
 
         protected void btnZoekGame_Click(object sender, EventArgs e)
         {
             if( SearchGame()== true)
             {
-
+                Response.Cookies["gametitel"].Value = txtZoekGame.Text;
+                Response.Cookies["gametitel"].Expires = DateTime.Now.AddDays(1);
+                Response.Redirect("GameInfo.aspx");
             }
         }
 
@@ -59,7 +62,7 @@ namespace eigenopdracht
                 conn.Close();
             }
             return gameFound;
-
+            
         }
 
         
