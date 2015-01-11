@@ -11,16 +11,16 @@ using System.Data;
 
 namespace eigenopdracht
 {
-    public class DbBerichten
+    public class DbBerichten :DatabaseConnectie
     {
 
         public Nbericht GetNieuwsBericht(string titelNieuwsBericht)
         {
-            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            
             Nbericht nieuwsbericht = null;
             try
             {
-                conn.Open();
+                Openconnectie();
                 OracleCommand oraCommand = new OracleCommand("SELECT bericht.berichtid,titel,berichttekst,postdatum,laatstgewijzigd,platform,bron FROM nieuws,bericht WHERE nieuws.BERICHTID = bericht.BERICHTID and bericht.TITEL = :Titel", conn);
                 oraCommand.Parameters.Add(new OracleParameter("Titel", titelNieuwsBericht));
                 OracleDataReader oraReader = oraCommand.ExecuteReader();
@@ -69,11 +69,11 @@ namespace eigenopdracht
 
         public DataSet getReactiesBericht(int berichtid)
         {
-            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            
             DataSet ds = new DataSet();
             try
             {
-                conn.Open();
+                Openconnectie();
                 OracleCommand oraCommand = new OracleCommand("SELECT UserName,GeplaatstOP,Tekst FROM reactie WHERE BERICHTID = :berichtid ORDER BY GeplaatstOP DESC", conn);
                 oraCommand.Parameters.Add(new OracleParameter("berichtid", berichtid));
                
@@ -97,11 +97,11 @@ namespace eigenopdracht
 
         public void Plaatsreactie(Reactie reactie)
         {
-            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            
             
             try
             {
-                conn.Open();
+                Openconnectie();
                 OracleCommand oraCommand = new OracleCommand("SELECT MAX(REACTIEID) from REACTIE ", conn);
                 
                 int maxid = int.Parse(oraCommand.ExecuteScalar().ToString());

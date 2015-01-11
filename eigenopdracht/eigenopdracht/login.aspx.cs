@@ -11,20 +11,23 @@ using Oracle.DataAccess.Types;
 namespace eigenopdracht
 {
     public partial class login : System.Web.UI.Page
-    {
+    { Dblogin dblogin = new Dblogin();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+               HiddenFieldredirect.Value = Request.UrlReferrer.ToString();
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if(checkusename() == true)
+            if(dblogin.checkusename(txtUsername.Text) == true)
             {
-                if(checkpass()==true)
+                if (dblogin.checkpass(txtUsername.Text,txtPassword.Text) == true)
                 {
                     Session["Username"] = txtUsername.Text;
-                    Response.Redirect("Nieuws.aspx");
+                    Response.Redirect(HiddenFieldredirect.Value);
                    
                 }
                 else
@@ -41,55 +44,7 @@ namespace eigenopdracht
 
         }
 
-        public bool checkusename()
-        {
-            bool userbestaat = false;
-            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-            int usernamecheck;
-            try
-            {
-                conn.Open();
-                OracleCommand oraCommand = new OracleCommand("SELECT count(*) as usercheck from ACCOUNT where username = :username", conn);
-                oraCommand.Parameters.Add(new OracleParameter("username", txtUsername.Text));
-                usernamecheck = int.Parse(oraCommand.ExecuteScalar().ToString());
-                if( usernamecheck ==1)
-                {
-                    userbestaat = true;
-                }
-
-            }
-            catch { }
-            finally
-            {
-                conn.Close();
-            }
-            return userbestaat;
-        }
-
-        public bool checkpass()
-        {
-            bool passcorrect = false;
-            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-            try
-            {
-                conn.Open();
-                OracleCommand oraCommand = new OracleCommand("SELECT wachtwoord  from ACCOUNT where username = :username", conn);
-                oraCommand.Parameters.Add(new OracleParameter("username", txtUsername.Text));
-                string password = oraCommand.ExecuteScalar().ToString();
-                if (password == txtPassword.Text)
-                {
-                    passcorrect = true;
-                }
-
-            }
-            catch { }
-            finally
-            {
-                conn.Close();
-            }
-            return passcorrect;
-
-        }
+       
 
      
     }

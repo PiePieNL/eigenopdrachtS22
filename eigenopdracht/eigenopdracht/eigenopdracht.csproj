@@ -157,6 +157,7 @@
     <Content Include="Content\demo.css" />
     <Content Include="Content\elastislide.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="DBlogin.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="gameafb\cod.jpg" />
     <Content Include="gameafb\destiny.png" />
@@ -269,8 +270,10 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseConnectie.cs" />
     <Compile Include="DbBerichten.cs" />
     <Compile Include="DbGame.cs" />
+    <Compile Include="Dblogin.cs" />
     <Compile Include="DbTop5.cs" />
     <Compile Include="GameInfo.aspx.cs">
       <DependentUpon>GameInfo.aspx</DependentUpon>

@@ -37,6 +37,7 @@
         </table>
     </div>
 
-    
+                    <asp:HiddenField ID="HiddenFieldredirect" runat="server" />
+
 
 </asp:Content>

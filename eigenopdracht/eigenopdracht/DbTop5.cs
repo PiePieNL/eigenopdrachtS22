@@ -8,15 +8,20 @@ using System.Data;
 
 namespace eigenopdracht
 {
-    public class DbTop5
+    public class DbTop5: DatabaseConnectie
     {
+
+        public DbTop5()
+        {
+
+        }
         public DataSet GetTop5(string maand ,string jaar)
         {
-            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            
             DataSet ds = new DataSet();
             try
             {
-                conn.Open();
+                Openconnectie();
                 string sql = "SELECT g.TITEL, g.AFBURL, g.PLATFORM,to_char(g.releasedatum , 'DD/MM/YYYY')as releasedatum,tp.POSITIE FRom Game g,Top100positie tp WHERE g.GAMEID = tp.GAMEID and tp.TOP100ID in (SELECT TOP100ID FROM TOP100 WHERE  to_char(TOP100.DATUM , 'MM') =:maand and to_char(TOP100.DATUM , 'YYYY') =:jaar  ) ORDER BY tp.POSITIE ASC";
                 OracleCommand oraCommand = new OracleCommand(sql, conn);
                 oraCommand.Parameters.Add(new OracleParameter("maand", maand));
@@ -44,11 +49,10 @@ namespace eigenopdracht
         public bool Checktop5(string maand )
         {
             bool top5bestaat = false;
-            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             int top5check;
             try
             {
-                conn.Open();
+                Openconnectie();
                 OracleCommand oraCommand = new OracleCommand("SELECT count(*) as top5check from TOP100 WHERE  to_char(TOP100.DATUM , 'MM') =:maand and to_char(TOP100.DATUM , 'YYYY') =:jaar", conn);
                 oraCommand.Parameters.Add(new OracleParameter("maand", maand));
                 oraCommand.Parameters.Add(new OracleParameter("jaar", DateTime.Now.Year.ToString()));
@@ -70,12 +74,12 @@ namespace eigenopdracht
 
         public string top5hoogsteid()
         {
-            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            
             string maxidstring = null;
             try
             {
-                
-                conn.Open();
+
+                Openconnectie();
                 OracleCommand oraCommand = new OracleCommand("SELECT MAX(TOP100ID) From TOP100 ", conn);
                 
                  int maxid = int.Parse(oraCommand.ExecuteScalar().ToString());
@@ -94,13 +98,13 @@ namespace eigenopdracht
 
         public string PlaatsTop5(string maand)
         {
-            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            
 
             string datum = "01-" + maand + "-" + DateTime.Now.Year.ToString();
             string maxid = top5hoogsteid();
             try
             {
-                conn.Open();
+                Openconnectie();
 
 
                 OracleCommand oraCommandins = new OracleCommand("INSERT INTO top100(TOP100ID,DATUM) values(:ID, TO_DATE(:datum,'DD-MM-YYYY')) ", conn);
@@ -126,12 +130,12 @@ namespace eigenopdracht
 
         public string idgame( string titel)
         {
-            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            
             string idgamestring = null;
             try
             {
 
-                conn.Open();
+                Openconnectie();
                 OracleCommand oraCommand = new OracleCommand("SELECT GAMEID From GAME WHERE TITEL = : titel ", conn);
                 oraCommand.Parameters.Add("titel", titel);
                 int gameid = int.Parse(oraCommand.ExecuteScalar().ToString());
@@ -150,11 +154,11 @@ namespace eigenopdracht
 
         public void PlaatsTop5Postitie(string gameid,string top5id, string positie)
         {
-            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            
 
             try
             {
-                conn.Open();
+                Openconnectie();
                 OracleCommand oraCommand = new OracleCommand("SELECT MAX(TOP100POSITIEID) from TOP100POSITIE ", conn);
 
                 int maxid = int.Parse(oraCommand.ExecuteScalar().ToString());

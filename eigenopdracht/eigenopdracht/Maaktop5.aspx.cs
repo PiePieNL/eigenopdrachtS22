@@ -14,6 +14,10 @@ namespace eigenopdracht
         DbTop5 db = new DbTop5();
         protected void Page_Load(object sender, EventArgs e)
         {
+             if (Session["Username"] == null)
+             {
+                 Response.Redirect("login.aspx");
+             }
 
         }
 

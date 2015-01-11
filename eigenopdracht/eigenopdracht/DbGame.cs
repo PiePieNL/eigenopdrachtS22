@@ -6,17 +6,18 @@ using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
 using System.Data;
 
-namespace eigenopdracht
+namespace eigenopdracht 
 {
-    public class DbGame
+    public class DbGame : DatabaseConnectie
     {
         public DataSet GetGameInfo(string gameTitel)
         {
-            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            
+            
             DataSet ds = new DataSet();
             try
             {
-                conn.Open();
+                Openconnectie();
                 OracleCommand oraCommand = new OracleCommand("SELECT * FROM GAME WHERE TITEL = :TITEL", conn);
                 oraCommand.Parameters.Add(new OracleParameter("TITEL", gameTitel));
 
@@ -40,10 +41,10 @@ namespace eigenopdracht
         public List<Bericht > getGameNieuws(string gametitel)
         {
             List<Bericht> nieuwsberichTitel = new List<Bericht>();
-            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+           
             try
             {
-                conn.Open();
+                 Openconnectie();
                 OracleCommand oraCommand = new OracleCommand("SELECT bericht.titel from BERICHT where GAMEID in(select Game.GAMEID from game where game.TITEL =:Titelg) and BERICHTID in (SELECT nieuws.BERICHTID FROM nieuws)", conn);
                 oraCommand.Parameters.Add(new OracleParameter("Titelg", gametitel));
                  OracleDataReader oraReader = oraCommand.ExecuteReader();
@@ -64,11 +65,11 @@ namespace eigenopdracht
 
         public DataSet Getscreenshots(string gametitel)
         {
-            OracleConnection conn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            
             DataSet ds = new DataSet();
             try
             {
-                conn.Open();
+                Openconnectie();
                 string sql = "Select afbeeldingurl from screenshot WHERE GAMEID in (SELECT GAMEID FROM GAME WHERE TITEL =: gametitel) ";
                 OracleCommand oraCommand = new OracleCommand(sql, conn);
                 oraCommand.Parameters.Add(new OracleParameter("gametitel", gametitel));

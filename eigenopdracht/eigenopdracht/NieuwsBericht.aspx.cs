@@ -40,6 +40,10 @@ namespace eigenopdracht
                 db.Plaatsreactie(new Reactie("Pieter12", txtComment.Text, nieuws.Berichtid));
                 laadcomments();
             }
+            else
+            {
+                Response.Redirect("login.aspx");
+            }
         }
 
        
