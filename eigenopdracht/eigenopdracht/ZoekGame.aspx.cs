@@ -47,7 +47,7 @@ namespace eigenopdracht
             try
             {
                 conn.Open();
-                OracleCommand oraCommand = new OracleCommand("SELECT TITEL  from Game where Titel = :Titel", conn);
+                OracleCommand oraCommand = new OracleCommand("SELECT TITEL  from Game where UPPER(Titel) = UPPER(:Titel)", conn);
                 oraCommand.Parameters.Add(new OracleParameter("Titel", txtZoekGame.Text));
                 string gameTitel = oraCommand.ExecuteScalar().ToString();
                 if (gameTitel != null)

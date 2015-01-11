@@ -162,6 +162,7 @@
     <Content Include="gameafb\skyrim.png" />
     <Content Include="GameInfo.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="Maaktop5.aspx" />
     <Content Include="NieuwsBericht.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -263,6 +264,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Maaktop5.aspx.cs">
+      <DependentUpon>Maaktop5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Maaktop5.aspx.designer.cs">
+      <DependentUpon>Maaktop5.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Nbericht.cs" />
